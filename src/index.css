@@ -1,5 +1,21 @@
-:root {
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url('./assets/fonts/static/JetBrainsMono-Bold.ttf');
+}
 
+:root {
+  --clr-neon-green: #A4FFAF;
+  --clr-yellow: #F8CD65;
+  --clr-orange: #FB7C58;
+  --clr-red: #F64A4A;
+  --clr-dark-gray: #24232C;
+  --clr-gray: #817D92;
+  --clr-almost-white: #E6E5EA;
+  --clr-vary-dark-gray: #18171F;
+
+  --heading-l: 2rem;
+  --heading-m: 1.5rem;
+  --body-m: 1.125rem;
 }
 
 *,
@@ -11,8 +27,10 @@
 body {
   margin: 0;
   padding: 0;
-  display: flex;
+  font-family: "JetBrains Mono", monospace;
+  display: grid;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #08070B;
 }
