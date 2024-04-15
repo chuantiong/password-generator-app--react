@@ -1,0 +1,152 @@
+@import 'index.scss';
+
+.main {
+  width: 100%;
+  min-width: 343px;
+  max-width: 540px;
+}
+
+.pg-text {
+  color: $clr-gray;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.container {
+  background-color: $clr-dark-gray;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.text-field {
+  @include flex-space-between;
+
+  &__text {
+    color: $clr-almost-white;
+    font-size: $heading-m;
+
+    &.empty {
+      opacity: .25;
+    }
+  }
+
+  &__helper-text {
+    color: $clr-neon-green;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-inline: auto 1rem;
+  }
+
+  &__trailing-icon {
+    width: 17.5px;
+    height: 20px;
+    cursor: pointer;
+
+    &:hover {
+      filter: invert(100%) grayscale(100%) brightness(1000%) contrast(100%);
+    }
+  }
+}
+
+/* ---------------
+  Slider idle
+--------------- */
+
+.slider-idle {
+  &__text {
+    @include flex-space-between;
+    color: $clr-almost-white;
+    font-size: $body-m;
+    text-transform: capitalize;
+    margin-bottom: .5rem;
+
+    .length-number {
+      color: $clr-neon-green;
+      font-size: $heading-m;
+    }
+  }
+
+  &__slider {
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: $clr-vary-dark-gray;
+    background: linear-gradient(to right, $clr-neon-green 0%, $clr-neon-green 50%, $clr-vary-dark-gray 50%, $clr-vary-dark-gray 100%);
+    cursor: pointer;
+  }
+
+  &__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 28px;
+    height: 28px;
+    background: $clr-almost-white;
+    border: none;
+    border-radius: 50%;
+  }
+
+  &__slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    background: $clr-almost-white;
+    border: none;
+    border-radius: 50%;
+  }
+
+  &__slider::-ms-thumb {
+    width: 28px;
+    height: 28px;
+    background: $clr-almost-white;
+    border: none;
+    border-radius: 50%;
+  }
+
+}
+
+/* ---------------
+  Checkbox
+--------------- */
+
+.checkboxes {
+  margin-block: 2rem;
+}
+
+.checkbox {
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: $clr-almost-white;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  margin-bottom: 1rem;
+
+  .checkbox:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+
+  &__input {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -3px;
+    left: -4px;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  &__check-mark {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $clr-almost-white;
+    margin-right: 1.25rem;
+  }
+
+  &__input:checked + &__check-mark {
+    background-color: $clr-neon-green;
+    background-image: url('./assets/images/icon-check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+  }
+}
