@@ -27,11 +27,16 @@
 
 .text-field {
   @include flex-space-between;
+  flex-wrap: wrap;
   margin-bottom: 1rem;
 
   &__text {
     color: $clr-almost-white;
     font-size: $fs-heading-m;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow-x: scroll;
+    width: clamp(60%, 50vw, 70%);
 
     &.placeholder {
       opacity: .25;
@@ -43,6 +48,7 @@
     font-size: 1rem;
     text-transform: uppercase;
     margin-inline: auto 1rem;
+    padding-left: 1rem;
   }
 
   &__trailing-icon {
@@ -53,6 +59,10 @@
     &:hover {
       filter: invert(100%) grayscale(100%) brightness(1000%) contrast(100%);
     }
+  }
+
+  &__trailing-icon.disabled {
+    pointer-events: none;
   }
 }
 
@@ -82,7 +92,7 @@
     width: 100%;
     height: 8px;
     background: $clr-very-dark-gray;
-    background: linear-gradient(to right, $clr-neon-green 0%, $clr-neon-green 50%, $clr-very-dark-gray 50%, $clr-very-dark-gray 100%);
+    background: linear-gradient(to right, $clr-neon-green 0%, $clr-neon-green 0%, $clr-very-dark-gray 0%, $clr-very-dark-gray 100%);
     cursor: pointer;
   }
 
@@ -259,6 +269,12 @@
 /* ---------------
   Media queries
 --------------- */
+@media screen and (min-width: 376px) {
+  .text-field__text {
+    // width: 50%;
+  }
+}
+
 @media screen and (min-width: 540px) {
   .pg-text {
     font-size: $fs-heading-m;

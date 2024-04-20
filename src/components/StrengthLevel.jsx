@@ -7,7 +7,7 @@ const StrengthLevel = ({ value }) => {
     let strengthLevel = '';
     let classLevel = '';
 
-    if (value >= 0 && value <= 5) {
+    if (value >= 1 && value <= 5) {
         strengthLevel = 'too weak!';
         classLevel = 'lvl-too-weak';
     } else if (value >= 6 && value <= 10) {
