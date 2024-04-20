@@ -14,11 +14,15 @@ $clr-red: #F64A4A;
 $clr-dark-gray: #24232C;
 $clr-gray: #817D92;
 $clr-almost-white: #E6E5EA;
-$clr-vary-dark-gray: #18171F;
+$clr-very-dark-gray: #18171F;
 
-$heading-l: 2rem;
-$heading-m: 1.5rem;
-$body-m: 1.125rem;
+$fs-heading-l: 2rem;
+$fs-heading-m: 1.5rem;
+$fs-body-m: 1.125rem;
+
+$padding-mobile-default: 1rem;
+$padding-desktop-default: 1.125rem 2rem;
+$padding-desktop-large: 1.5rem 2rem 2rem;
 
 /* ---------------
   Mixin
@@ -28,6 +32,26 @@ $body-m: 1.125rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@mixin slider-thumb {
+  width: 28px;
+  height: 28px;
+  background: $clr-almost-white;
+  border: 2px solid $clr-almost-white;
+  border-radius: 50%;
+  transition: all .3s ease-in-out;
+  box-sizing: border-box;
+}
+
+@mixin slider-thumb-hover {
+  background: $clr-very-dark-gray;
+  border: 2px solid $clr-neon-green;
+}
+
+@mixin lvl-block-size {
+  width: 10px;
+  height: 28px;
 }
 
 *,
@@ -41,11 +65,23 @@ body {
   padding: 0;
   font-family: "JetBrains Mono", monospace;
   display: grid;
-  place-items: center;
+  align-items: center;
+  width: 100%;
   min-width: 320px;
-  min-height: 100vh;
+  max-width: 1440px;
+  height: 100vh;
   background-color: #08070B;
   user-select: none;
+}
+
+h4 {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
 }
 
 /* ---------------
@@ -55,3 +91,4 @@ body {
 .hide {
   display: none;
 }
+

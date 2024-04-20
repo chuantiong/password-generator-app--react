@@ -1,63 +1,52 @@
 import React, { useState } from 'react';
+import { useValueContext } from '../contexts/ValueContext';
+import { useRegexContext } from '../contexts/RegexContext';
 import TextField from './TextField';
+import Slider from '../elements/Slider';
+import Strength from './Strength';
 import Checkbox from '../elements/Checkbox';
+import Button from '../elements/Button';
 
 const Control = () => {
-    const [value, setValue] = useState(10);
-    const [backgroundStyle, setBackgroundStyle] = useState('');
+    const { value } =  useValueContext();
+    const { regexData } = useRegexContext();
+    const [newPassword, setNewPassword] = useState('');
 
-    const handleInputChange = (e) => {
-        const newValue = parseInt(e.target.value);
-        setValue(newValue);
-        updateBackground(newValue);
+    const generateRandomPassword = () => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+        const passwordLength = value;
+        const regex = regexData;
+        let password = '';
+
+        const validCharacters = characters.match(regex);
+
+        for (let i = 0; i < passwordLength; i++) {
+            const randomIndex = Math.floor(Math.random() * validCharacters.length);
+            const randomChar = validCharacters[randomIndex];
+            password += randomChar;
+        }
+
+        return password;
     };
 
-    const updateBackground = (value) => {
-        const percent = (value / 20) * 100;
-        setBackgroundStyle(
-            `linear-gradient(to right, #A4FFAF 0%, #A4FFAF ${percent}%, #18171F ${percent}%, #18171F 100%)`
-        );
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let password = generateRandomPassword();
+        setNewPassword(password);
     };
 
     return (
         <section className='control'>
-            <TextField />
-            <form className="container">
-                <div className="slider-idle">
-                    <div className='slider-idle__text'>
-                        character length
-                        <span className='length-number'>{value}</span>
-                    </div>
-                    <input
-                        className='slider-idle__slider'
-                        type="range"
-                        min={0}
-                        max={20}
-                        defaultValue={value}
-                        onChange={handleInputChange}
-                        style={{ background: backgroundStyle}}
-                    />
-                </div>
+            <TextField
+                newPassword={newPassword}
+            />
+            <form className="form" onSubmit={handleSubmit}>
+                <Slider />
                 <div className="checkboxes">
-                    <Checkbox
-                        id="uppercase"
-                        text="include uppercase letters"
-                    />
-                    <Checkbox
-                        id="lowercase"
-                        text="include lowercase letters"
-                    />
-                    <Checkbox
-                        id="numbers"
-                        text="include numbers"
-                    />
-                    <Checkbox
-                        id="symbols"
-                        text="include symbols"
-                    />
+                    <Checkbox />
                 </div>
-                <div className="strength"></div>
-                <button type='submit'>GENERATE</button>
+                <Strength />
+                <Button />
             </form>
         </section>
     );
