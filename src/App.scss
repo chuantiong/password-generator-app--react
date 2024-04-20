@@ -33,10 +33,9 @@
   &__text {
     color: $clr-almost-white;
     font-size: $fs-heading-m;
-    white-space: pre;
-    text-overflow: ellipsis;
+    width: clamp(60%, 50vw, 75%);
+    white-space: nowrap;
     overflow-x: scroll;
-    width: clamp(60%, 50vw, 70%);
 
     &.placeholder {
       opacity: .25;
@@ -193,6 +192,7 @@
   .lvl-text {
     color: $clr-almost-white;
     font-size: $fs-body-m;
+    text-wrap: nowrap;
   }
 }
 
@@ -224,7 +224,7 @@
 }
 
 .lvl-too-weak {
-  background-color: $clr-red
+  background-color: $clr-red;
 }
 
 .lvl-weak {

@@ -24,21 +24,26 @@ const checkboxData = [
 const strengthData = [
     {
         id: 1,
+        strength: "empty",
+        level: 0,
+    },
+    {
+        id: 2,
         strength: "too weak!",
         level: 1,
     },
     {
-        id: 2,
+        id: 3,
         strength: "weak",
         level: 2,
     },
     {
-        id: 3,
+        id: 4,
         strength: "medium",
         level: 3,
     },
     {
-        id: 4,
+        id: 5,
         strength: "strong",
         level: 4,
     },

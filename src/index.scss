@@ -85,6 +85,32 @@ button {
 }
 
 /* ---------------
+  Scrollbar
+--------------- */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $clr-dark-gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $clr-very-dark-gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $clr-neon-green;
+}
+
+
+/* ---------------
   Utility
 --------------- */
 
@@ -92,3 +118,6 @@ button {
   display: none;
 }
 
+.opacity-0 {
+  opacity: 0;
+}

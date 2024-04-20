@@ -7,7 +7,10 @@ const StrengthLevel = ({ value }) => {
     let strengthLevel = '';
     let classLevel = '';
 
-    if (value >= 1 && value <= 5) {
+    if (value === 0) {
+        strengthLevel = 'empty';
+        classLevel = '';
+    } else if (value >= 1 && value <= 5) {
         strengthLevel = 'too weak!';
         classLevel = 'lvl-too-weak';
     } else if (value >= 6 && value <= 10) {
@@ -25,7 +28,11 @@ const StrengthLevel = ({ value }) => {
 
     return (
         <div className='strength__lvl'>
-            <span className='lvl-text'>{strengthLevel}</span>
+            <span
+                className={value === 0 ? 'lvl-text opacity-0' : 'lvl-text'}
+            >
+                {strengthLevel}
+            </span>
             <div className="lvl-blocks">
                 <div className='lvl-outlined-blocks'>
                     {defaultSpans.map((_, index) => (
