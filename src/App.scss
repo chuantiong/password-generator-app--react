@@ -3,7 +3,7 @@
 .main {
   width: 100%;
   max-width: 540px;
-  margin: 0 auto;
+  margin: 0 auto 6rem;
   padding-inline: 1rem;
 }
 
@@ -264,6 +264,32 @@
 
 .generate-btn:hover .arrow-right-icon {
   fill: $clr-neon-green;
+}
+
+/* ---------------
+    Attribution
+--------------- */
+.attribution {
+  font-family: Arial, sans-serif;
+  width: 100vw;
+  background-color: $clr-dark-gray;
+  opacity: .9;
+  padding: 1rem;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+
+  &__text {
+    color: $clr-gray;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  &__link {
+    color: $clr-almost-white;
+    font-weight: 600;
+  }
 }
 
 /* ---------------
